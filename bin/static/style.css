@@ -1,0 +1,108 @@
+@import
+	url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+
+#reviewsHeader {
+	background-image:
+		url("http://www.digiorno.com/Content/Images/products/11198-menu.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 30vh;
+	color: white;
+}
+
+#reviewDetailHeader {
+	margin: 0;
+}
+
+header {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+header h1 {
+	text-align: center;
+	font-size: 4em;
+	font-weight: 300;
+	margin-top: 0;
+}
+
+body {
+	background-color: #fefefe;
+	color: #222222;
+	font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+	list-style-type: none;
+	font-size: 1.5em;
+}
+
+/* the color when you hover is the color of pepperoni */
+a:hover {
+	color: rgb(193, 68, 57);
+}
+
+li a, h3 a {
+	text-decoration: none;
+	color: rgb(22, 22, 22);
+}
+
+li a:visited {
+	color: rgb(112, 112, 112);
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.rating {
+	display: inline;
+}
+
+.center {
+	margin: auto;
+	width: 80%;
+	padding: 10px;
+}
+
+.centerText {
+	text-align: center;
+	display: block;
+}
+
+.italicText {
+	font-style: italic;
+}
+
+#ratingStar {
+	height: 20px;
+	width: 20px;
+	display: inline;
+}
+
+/* cheat here by setting the tag font size to
+   big as a default.  Then set it to small
+   or medium based on the number of times the tag is used */
+/* the link tells how to do a better way of selecting attributes with < or > values 
+   for sake of time, I am doing it the easy way here 
+   https://www.bram.us/2016/10/13/css-attribute-value-less-than-greater-than-equals-selectors/
+   Also, there is a note in the controller on a better idea of how do do this.
+*/
+.tag {
+	font-size: 2rem;
+	text-decoration: none;
+}
+
+[tag-count~="0"] {
+	font-size: .8rem;
+}
+
+[tag-count~="1"], [tag-count~="2"] {
+	font-size: 1.1rem;
+}
+
+[tag-count~="3"], [tag-count~="4"] {
+	font-size: 1.5rem;
+}

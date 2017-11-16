@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"/>   
+
+	<title>Pizza Review Categories</title>
+	
+	<link rel="stylesheet" type="text/css" th:href="layout.css" />
+	<link rel="stylesheet" type="text/css" th:href="style.css" />
+	<link rel="stylesheet" type="text/css" th:href="style-footer.css" />
+	<link rel="stylesheet" type="text/css" th:href="layout-footer.css" />
+</head>
+<body>
+	<div class="container">
+		<header id="reviewsHeader">
+			<h1>My Pizza Reviews</h1>
+		</header>
+
+		<main>
+	
+		    <div class="cat-list">
+				<div  th:each="category: ${categories}">
+ 					<a th:href="@{/singleCategory(id=${category.id})}">
+ 						<img class="cat-img" th:src="${category.imageURL}" alt="category image"/>
+ 					</a>
+					<h3>
+						<a th:href="@{/singleCategory(id=${category.id})}"
+					   th:text="${category.name}">
+						</a>
+					</h3>
+				</div>
+ 			</div>
+			
+			<div class="tag-list">
+				<ul>
+					<li th:each="tag: ${allTags}">
+						<a tag-count="0" class="tag"
+							th:attr="tag-count = ${tag.getTaggedPizzaReviewsSize()}"
+							th:href="@{/singleTag(id=${tag.id})}" th:text="${tag.name}">
+						</a>
+					</li>
+				</ul>
+			</div>
+	
+		</main>
+		<footer>
+			<p>I like Pizza!</p>
+			<p>WCCI Week 7 Project</p>
+		</footer>
+	</div>
+</body>
+</html>

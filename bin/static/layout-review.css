@@ -1,0 +1,12 @@
+.tag-list {
+	padding-top: 0rem;
+}
+
+.tag-list li {
+	padding: .5rem;
+}
+
+.tag-list ul{
+	display: flex;
+	flex-wrap: wrap;
+}

@@ -1,0 +1,52 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root { -
+	--grid-gap: 5px;
+}
+
+.container {
+	display: grid;
+	grid-gap: var(--grid-gap);
+	grid-template-rows: auto auto auto; // make the height take up all of
+	the vewport height units height : 100vh;
+	width: auto;
+}
+
+main {
+	width: 75vw;
+	margin: auto;
+	display: grid;
+}
+
+.cat-list {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: var(- -grid-gap);
+}
+
+.cat-img {
+	width: 20vw;
+	height: 30vh;
+}
+
+.cat-list h3 {
+	display: flex;
+	justify-content: space-around;
+}
+
+.tag-list {
+	padding-top: 1.5rem;
+}
+
+.tag-list li {
+	padding: .5rem;
+}
+
+.tag-list ul {
+	display: flex;
+	flex-wrap: wrap;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Pizza Reviews</title>
+	<link rel="stylesheet" type="text/css" th:href="style.css" />
+	<link rel="stylesheet" type="text/css" th:href="style-footer.css" />
+	<link rel="stylesheet" type="text/css" th:href="layout-category-tag.css" />
+	<link rel="stylesheet" type="text/css" th:href="layout-footer.css" />
+</head>
+
+<body>
+	<div class="container detail-display">
+		<header>
+			<h1 id="reviewsHeader" th:text = "${category.name} + ' Pizza Reviews'"></h1>
+		</header>
+
+		<section class="center detail-list">
+
+			<ul>
+				<li th:each="pizzaReview: ${category.pizzaReviews}">
+					<a th:href="@{/singleReview(id=${pizzaReview.id})}" th:text="${pizzaReview.title}"></a>
+				</li>
+			</ul>
+
+		</section>
+
+		<footer>
+			<a href="http://localhost:8080/categoryList">Pizza Categories</a>
+			<p>I like Pizza!</p>
+			<p>WCCI Week 7 Project</p>
+		</footer>
+	</div><!-- end div for class="container"   -->
+</body>
+</html>
