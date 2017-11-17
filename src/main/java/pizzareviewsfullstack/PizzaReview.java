@@ -50,6 +50,14 @@ public class PizzaReview {
 		this.tags = new HashSet<Tag>(Arrays.asList(tag));
 	}
 
+	public void removeTag(Tag tag) {
+		tags.remove(tag);
+	}
+
+	public void addTag(Tag tag) {
+		tags.add(tag);
+	}
+
 	public Long getId() {
 		return id;
 	}

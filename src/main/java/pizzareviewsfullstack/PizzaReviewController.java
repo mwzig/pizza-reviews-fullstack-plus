@@ -1,5 +1,7 @@
 package pizzareviewsfullstack;
 
+import java.util.Set;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -53,6 +55,49 @@ public class PizzaReviewController {
 	public String getOneCourse(@RequestParam(value = "id") Long id, Model model) {
 		model.addAttribute("review", reviewRepo.findOne(id));
 		return "review"; // the html page for the single review
+	}
+
+	@RequestMapping("/add-tag")
+	public String addTag(@RequestParam(value = "id") Long id, String tagName) {
+
+		Tag tagBeingAdded = tagRepo.findByName(tagName);
+		if (tagBeingAdded == null) {
+			tagBeingAdded = new Tag(tagName);
+			tagRepo.save(tagBeingAdded);
+		}
+
+		// find the review object - use reviewRepo.findOne(id)
+		PizzaReview pizzaReview = reviewRepo.findOne(id);
+		// Determine if the tag is already on the review
+		Set<Tag> existingTagsOnReview = pizzaReview.getTags();
+		if (!existingTagsOnReview.contains(tagBeingAdded)) {
+			// add the new tag to the Review java object tag Set
+			pizzaReview.addTag(tagBeingAdded);
+			// save the review
+			reviewRepo.save(pizzaReview);
+		}
+		return "redirect:/singleReview?id=" + id.toString();
+	}
+
+	@RequestMapping("/remove-tag")
+	public String removeTag(@RequestParam(value = "id") Long id, String tagName) {
+
+		Tag tagBeingRemoved = tagRepo.findByName(tagName);
+		if (tagBeingRemoved != null) {
+			// find the review object - use reviewRepo.findOne(id)
+			PizzaReview pizzaReview = reviewRepo.findOne(id);
+			// Determine if the tag is already on the review
+			Set<Tag> existingTagsOnReview = pizzaReview.getTags();
+			if (existingTagsOnReview.contains(tagBeingRemoved)) {
+				// add the new tag to the Review java object tag Set
+				pizzaReview.removeTag(tagBeingRemoved);
+				// save the review
+				reviewRepo.save(pizzaReview);
+			}
+		}
+		// think about a javascript message here if tag being
+		// removed doesn't exist
+		return "redirect:/singleReview?id=" + id.toString();
 	}
 
 }

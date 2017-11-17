@@ -7,8 +7,7 @@
 	<link rel="stylesheet" type="text/css" th:href="style.css" />
 	<link rel="stylesheet" type="text/css" th:href="style-footer.css" />
 	<link rel="stylesheet" type="text/css" th:href="layout-footer.css" />
-	<link rel="stylesheet" type="text/css" th:href="layout-review.css" />
-	
+	<link rel="stylesheet" type="text/css" th:href="layout-review.css" />	
 </head>
 
 <body>
@@ -51,7 +50,18 @@
 						</a>
 					</li>
 				</ul>
-			</div>		
+			</div>	
+			<form method = "POST">
+				<label>Enter a new tag:</label>
+				<input type="text" name="tagName" />
+				<button th:formaction="@{/add-tag(id=${review.id})}">add</button>
+			</form>
+
+			<form method = "POST">
+				<label>Enter name of tag to remove:</label>
+				<input type="text" name="tagName" />
+				<button th:formaction="@{/remove-tag(id=${review.id})}">delete</button>
+			</form>	
 
 		</section>
 		
