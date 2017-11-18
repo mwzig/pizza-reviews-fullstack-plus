@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 public class PizzaReviewPopulator implements CommandLineRunner {
 
 	@Resource
+	private ReviewCommentRepository commentRepo;
+
+	@Resource
 	private TagRepository tagRepo;
 
 	@Resource
@@ -93,6 +96,12 @@ public class PizzaReviewPopulator implements CommandLineRunner {
 				"Timbuktu", "http://www.rotolospizza.com/", "10/27/2017", 4, carryOut, pepperoni);
 
 		reviewRepo.save(rev7);
+
+		ReviewComment comment1 = new ReviewComment("It tasted like cardboard", rev1);
+		ReviewComment comment2 = new ReviewComment(
+				"Oops, I forgot to remove the cardboard under the pizza when I cooked it!", rev1);
+		commentRepo.save(comment1);
+		commentRepo.save(comment2);
 
 	}
 

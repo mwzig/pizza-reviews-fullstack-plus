@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class PizzaReview {
@@ -29,6 +30,9 @@ public class PizzaReview {
 
 	@ManyToOne
 	private Category category;
+
+	@OneToMany(mappedBy = "review")
+	Set<ReviewComment> comments;
 
 	@ManyToMany
 	private Set<Tag> tags;
@@ -56,6 +60,10 @@ public class PizzaReview {
 
 	public void addTag(Tag tag) {
 		tags.add(tag);
+	}
+
+	public void addComment(ReviewComment comment) {
+		comments.add(comment);
 	}
 
 	public Long getId() {
@@ -102,18 +110,26 @@ public class PizzaReview {
 		return tags.size();
 	}
 
+	public int getCommentCount() {
+		return comments.size();
+	}
+
 	@Override
 	public String toString() {
 
-		if (tags.size() > 0) {
-			return "PizzaReview [id=" + id + ", title=" + title + ", imageURL=" + imageURL + ", content=" + content
-					+ ", address=" + address + ", website=" + website + ", date=" + date + ", rating=" + rating
-					+ ", category=" + category + ", tags=" + tags + "]";
-		} else {
-			return "PizzaReview [id=" + id + ", title=" + title + ", imageURL=" + imageURL + ", content=" + content
-					+ ", address=" + address + ", website=" + website + ", date=" + date + ", rating=" + rating
-					+ ", category=" + category + ", tags=(not tagged)" + "]";
+		String returnString = "PizzaReview [id=" + id + ", title=" + title + ", imageURL=" + imageURL + ", content="
+				+ content + ", address=" + address + ", website=" + website + ", date=" + date + ", rating=" + rating
+				+ ", category=" + category;
+
+		if (comments.size() > 0) {
+			returnString += ", comment(s)=" + comments;
 		}
+
+		if (tags.size() > 0) {
+			returnString += ", tag(s)=" + tags;
+		}
+
+		return returnString;
 	}
 
 }

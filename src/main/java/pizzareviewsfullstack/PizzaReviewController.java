@@ -68,8 +68,10 @@ public class PizzaReviewController {
 
 		// find the review object - use reviewRepo.findOne(id)
 		PizzaReview pizzaReview = reviewRepo.findOne(id);
+
 		// Determine if the tag is already on the review
 		Set<Tag> existingTagsOnReview = pizzaReview.getTags();
+
 		if (!existingTagsOnReview.contains(tagBeingAdded)) {
 			// add the new tag to the Review java object tag Set
 			pizzaReview.addTag(tagBeingAdded);
@@ -83,11 +85,16 @@ public class PizzaReviewController {
 	public String removeTag(@RequestParam(value = "id") Long id, String tagName) {
 
 		Tag tagBeingRemoved = tagRepo.findByName(tagName);
+		// if the tag being removed exists in the database
+		// then we need to remove it from the review
 		if (tagBeingRemoved != null) {
+
 			// find the review object - use reviewRepo.findOne(id)
 			PizzaReview pizzaReview = reviewRepo.findOne(id);
+
 			// Determine if the tag is already on the review
 			Set<Tag> existingTagsOnReview = pizzaReview.getTags();
+
 			if (existingTagsOnReview.contains(tagBeingRemoved)) {
 				// add the new tag to the Review java object tag Set
 				pizzaReview.removeTag(tagBeingRemoved);

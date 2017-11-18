@@ -41,6 +41,15 @@
 
 			<p th:text="'Review Date: ' + ${review.date}"></p>
 
+			<div class="comment-list">
+				<ul th:if="${review.getCommentCount()} &gt; 0">
+					<li th:each="comment: ${review.comments}">
+							th:text="${comment.text}">
+							<button>delete</button>
+						</a>
+					</li>
+				</ul>
+			</div>	
 			<div class="tag-list">
 				<ul th:if="${review.getTagCount()} &gt; 0">
 					<li th:each="tag: ${review.tags}">
@@ -51,18 +60,20 @@
 					</li>
 				</ul>
 			</div>	
-			<form method = "POST">
-				<label>Enter a new tag:</label>
-				<input type="text" name="tagName" />
-				<button th:formaction="@{/add-tag(id=${review.id})}">add</button>
-			</form>
-
-			<form method = "POST">
-				<label>Enter name of tag to remove:</label>
-				<input type="text" name="tagName" />
-				<button th:formaction="@{/remove-tag(id=${review.id})}">delete</button>
-			</form>	
-
+			
+			<div class="add-remove-tag-form">
+				<form method = "POST">
+					<label>Enter a new tag:</label>
+					<input type="text" name="tagName" />
+					<button th:formaction="@{/add-tag(id=${review.id})}">add</button>
+				</form>
+	
+				<form method = "POST">
+					<label>Enter name of tag to remove:</label>
+					<input type="text" name="tagName" />
+					<button th:formaction="@{/remove-tag(id=${review.id})}">delete</button>
+				</form>	
+			</div>
 		</section>
 		
 		<footer>
