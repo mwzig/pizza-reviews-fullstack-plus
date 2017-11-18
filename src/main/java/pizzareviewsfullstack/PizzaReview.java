@@ -106,6 +106,10 @@ public class PizzaReview {
 		return tags;
 	}
 
+	public Set<ReviewComment> getComments() {
+		return comments;
+	}
+
 	public int getTagCount() {
 		return tags.size();
 	}

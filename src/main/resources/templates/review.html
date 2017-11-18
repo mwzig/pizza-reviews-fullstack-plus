@@ -7,7 +7,8 @@
 	<link rel="stylesheet" type="text/css" th:href="style.css" />
 	<link rel="stylesheet" type="text/css" th:href="style-footer.css" />
 	<link rel="stylesheet" type="text/css" th:href="layout-footer.css" />
-	<link rel="stylesheet" type="text/css" th:href="layout-review.css" />	
+	<link rel="stylesheet" type="text/css" th:href="layout-review.css" />
+	<script src="./js/app.js"></script>	
 </head>
 
 <body>
@@ -18,38 +19,31 @@
 		</header>
 
 		<section class="center">
+			<div class="database-details">
 
-			<img th:src="${review.imageURL}" alt="pizza image" />
+				<img th:src="${review.imageURL}" alt="pizza image" />
 
-			<h2 class="centerText italicText" th:text="${review.getTitle()}"></h2>
+				<h2 class="centerText italicText" th:text="${review.getTitle()}"></h2>
 
-			<p th:text="${review.content}"></p>
+				<p th:text="${review.content}"></p>
 
-			<p th:text="'Category: ' + ${review.category.name}"></p>
+				<p th:text="'Category: ' + ${review.category.name}"></p>
 
-			<p th:if="${not #strings.isEmpty(review.address)}" th:text="'Location: ' + ${review.address}" ></p>
+				<p th:if="${not #strings.isEmpty(review.address)}" th:text="'Location: ' + ${review.address}" ></p>
 
-			<p class="rating" th:text="'Rating: (out of 5) '"></p>
+				<p class="rating" th:text="'Rating: (out of 5) '"></p>
 
-			<img class="rating" id="ratingStar"
-				th:each="i : ${#numbers.sequence( 1, review.rating)}"
-				src="images/smooth-star.jpg" alt="*" />
+				<img class="rating" id="ratingStar"
+					th:each="i : ${#numbers.sequence( 1, review.rating)}"
+					src="images/smooth-star.jpg" alt="*" />
 
-			<p>
-				<a th:href="${review.website}">Company Website</a>
-			</p>
+				<p>
+					<a th:href="${review.website}">Company Website</a>
+				</p>
 
-			<p th:text="'Review Date: ' + ${review.date}"></p>
+				<p th:text="'Review Date: ' + ${review.date}"></p>
 
-			<div class="comment-list">
-				<ul th:if="${review.getCommentCount()} &gt; 0">
-					<li th:each="comment: ${review.comments}">
-							th:text="${comment.text}">
-							<button>delete</button>
-						</a>
-					</li>
-				</ul>
-			</div>	
+			</div>
 			<div class="tag-list">
 				<ul th:if="${review.getTagCount()} &gt; 0">
 					<li th:each="tag: ${review.tags}">
