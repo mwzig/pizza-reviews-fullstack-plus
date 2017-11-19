@@ -42,9 +42,12 @@
 
 				<p th:text="'Review Date: ' + ${review.date}"></p>
 
+				<p>Comments:</p>
 			</div>
 			<div class="user-comments" id="comments">
-			<button type="button" name="addCommentButton" id="addCommentButton">Add a Comment</button>
+			</div>
+			<div>
+				<button type="button" name="addCommentButton" id="addCommentButton">Add a Comment</button>
 			</div>
 			<div class="tag-list">
 				<ul th:if="${review.getTagCount()} &gt; 0">
@@ -67,7 +70,7 @@
 				<form method = "POST">
 					<label>Enter name of tag to remove:</label>
 					<input type="text" name="tagName" />
-					<button th:formaction="@{/remove-tag(id=${review.id})}">delete</button>
+					<button id='deleteTagButton' th:formaction="@{/remove-tag(id=${review.id})}">delete</button>
 				</form>	
 			</div>
 		</section>

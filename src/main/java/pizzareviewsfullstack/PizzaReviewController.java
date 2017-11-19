@@ -107,4 +107,9 @@ public class PizzaReviewController {
 		return "redirect:/singleReview?id=" + id.toString();
 	}
 
+	@RequestMapping("/remove-tag-delete-cancelled")
+	public String removeTagDeleteCancelled(@RequestParam(value = "id") Long id, String tagName) {
+		return "redirect:/singleReview?id=" + id.toString();
+	}
+
 }

@@ -56,7 +56,6 @@ li a:visited {
 	color: rgb(112, 112, 112);
 }
 
-
 .pizzaTitle a:hover {
 	color: #211616;
 	font-size: 1.65rem;
@@ -116,4 +115,21 @@ img {
 
 [tag-count~="3"], [tag-count~="4"] {
 	font-size: 1.5rem;
+}
+
+/* styles for comments on review page */
+.aComment p, .aComment button{
+	font-size: .7rem;
+}
+
+.aComment button {
+	margin: .45em;
+}
+
+.aComment p {
+	padding-left: 1rem;
+}
+
+#comments:empty {
+   display: none;
 }

@@ -11,11 +11,13 @@ footerCopyrightText.addEventListener('mouseout', function() {
 // This is done only on the main page intentionally
 var pizzaLike = document.querySelector('#pizza-like-stmt');
 
-pizzaLike.addEventListener('mouseover', function() {
-	this.style.fontSize = '130%';
-	this.style.fontWeight = 'bold';
-});
-pizzaLike.addEventListener('mouseout', function() {
-	this.style.fontSize = '100%';
-	this.style.fontWeight = 'normal';
-});
+if (pizzaLike != null) {
+	pizzaLike.addEventListener('mouseover', function() {
+		this.style.fontSize = '130%';
+		this.style.fontWeight = 'bold';
+	});
+	pizzaLike.addEventListener('mouseout', function() {
+		this.style.fontSize = '100%';
+		this.style.fontWeight = 'normal';
+	});
+}

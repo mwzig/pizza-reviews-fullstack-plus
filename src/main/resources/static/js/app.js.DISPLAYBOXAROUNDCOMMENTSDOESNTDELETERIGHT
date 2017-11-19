@@ -13,7 +13,23 @@ function displayBoxAroundComments() {
 		document.querySelector(".user-comments").style.border = "1px dotted grey";
 	}
 }
+	
+// *********************************************************************//
+// This function actually deletes a specific comment
+// *********************************************************************//
+function deleteComment(number) {
 
+	var confirmDelete = prompt('Enter YES to confirm delete');
+	if (confirmDelete == "YES") {
+		var idNameToDelete = 'commentDiv' + number;
+		var elementToDelete = document.getElementById(idNameToDelete);
+		// alert(idNameToDelete);
+		elementToDelete.parentNode.removeChild(elementToDelete);
+		//displayBoxAroundComments();
+	} else {
+		alert("You choose not to delete this comment.");
+	}
+}
 // *********************************************************************//
 // This EventListener is called when the user clicks the
 // Add Comment button. It has the logic to handle adding comments.
@@ -49,21 +65,11 @@ addCommentButton.addEventListener('click', function() {
 		var delButton = document.createElement("button");
 		// Give it our incremented commentNbrn class so it can be identifiable
 		delButton.className = 'commentNbr' + commentNbr;
-		delButton.id = commentNbr;
 
 		// Add an EventListener to that delete button so we can delete that
 		// comment if the user clicks it
 		delButton.addEventListener('click', function() {
-			var confirmDelete = prompt('Enter YES to confirm delete');
-			if (confirmDelete == "YES") {
-				var idName = this.id;
-				var idNameToDelete = 'commentDiv' + idName;
-				var elementToDelete = document.getElementById(idNameToDelete);
-				elementToDelete.parentNode.removeChild(elementToDelete);
-				displayBoxAroundComments();
-			} else {
-				alert("You choose not to delete this comment.");
-			}
+			deleteComment(commentNbr);
 		});
 
 		// Put text on the button
@@ -85,7 +91,7 @@ addCommentButton.addEventListener('click', function() {
 		div.appendChild(delButton);
 		div.appendChild(para);
 	}
-	displayBoxAroundComments();
+	//displayBoxAroundComments();
 });
 
 // *********************************************************************//
