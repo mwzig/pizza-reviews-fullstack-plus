@@ -12,9 +12,8 @@
 }
 
 #reviewsHeader h1:hover {
-	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
-
 
 #reviewDetailHeader {
 	margin: 0;
@@ -118,7 +117,7 @@ img {
 }
 
 /* styles for comments on review page */
-.aComment p, .aComment button{
+.aComment p, .aComment button {
 	font-size: .7rem;
 }
 
@@ -131,5 +130,5 @@ img {
 }
 
 #comments:empty {
-   display: none;
+	display: none;
 }

@@ -5,6 +5,17 @@ import javax.annotation.Resource;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+//******************************************************************//
+//*  I added a ReviewComment class and Respository when I was      *//
+//* thinking that I had to persist comments.  It turns out that    *//
+//* this is not necessary.  However, I left it in because I spent  *//
+//* time figuring out how to do the db logic that has a one to man *//
+//* of PizzaReview to ReviewComment and I wanted to leave it in    *//
+//* for potential future enhancements.                             *//
+//* The persisted comments are not displayed because we are not    *//
+//* moving them to the view                                        *//
+//******************************************************************//
+
 @Component
 public class PizzaReviewPopulator implements CommandLineRunner {
 

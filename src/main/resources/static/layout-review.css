@@ -6,11 +6,11 @@
 	padding: .5rem;
 }
 
-.tag-list ul{
+.tag-list ul {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.aComment{
+.aComment {
 	display: flex;
 }

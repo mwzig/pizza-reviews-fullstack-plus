@@ -1,4 +1,3 @@
-
 var commentNbr = 0;
 var addCommentButton = document.getElementById('addCommentButton');
 
@@ -7,7 +6,7 @@ var addCommentButton = document.getElementById('addCommentButton');
 //*********************************************************************//
 function displayBoxAroundComments() {
 	var commentsExist = document.querySelector(".aComment");
-	if (commentsExist == null){
+	if (commentsExist == null) {
 		document.querySelector(".user-comments").style.border = "none";
 	} else {
 		document.querySelector(".user-comments").style.border = "1px dotted grey";
@@ -104,17 +103,12 @@ deleteTagButton.addEventListener('click', function() {
 	var confirmDelete = prompt('Enter YES to confirm delete');
 
 	if (confirmDelete == "YES") {
-		alert("You want to delete this tag.");
+		//alert("You want to delete this tag.");
 	} else {
 		deleteTagButton.setAttribute("th:formaction",
 				"@{/remove-tag-delete-cancelled(id=${review.id})}");
 	}
 });
-
-// <button id='deleteTagButton'
-// th:formaction="@{/remove-tag(id=${review.id})}">delete</button>
-
-// /remove-tag-delete-cancelled
 
 // Leaving this in as an example of looping through elements and
 // setting up EventListeners on all of a set
