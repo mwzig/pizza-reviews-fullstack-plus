@@ -54,7 +54,7 @@ addCommentButton.addEventListener('click', function() {
 		// comment if the user clicks it
 		delButton.addEventListener('click', function() {
 			var confirmDelete = prompt('Enter YES to confirm delete');
-			if (confirmDelete == "YES") {
+			if (confirmDelete == "YES" || confirmDelete == "yes") {
 				var idName = this.id;
 				var idNameToDelete = 'commentDiv' + idName;
 				var elementToDelete = document.getElementById(idNameToDelete);
@@ -102,7 +102,7 @@ deleteTagButton.addEventListener('click', function() {
 
 	var confirmDelete = prompt('Enter YES to confirm delete');
 
-	if (confirmDelete == "YES") {
+	if (confirmDelete == "YES" || confirmDelete == "yes") {
 		//alert("You want to delete this tag.");
 	} else {
 		deleteTagButton.setAttribute("th:formaction",
