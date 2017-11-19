@@ -19,7 +19,7 @@
 		<section class="center detail-list">
 
 			<ul>
-				<li th:each="pizzaReview: ${tag.taggedPizzaReviews}">
+				<li class="pizzaTitle" th:each="pizzaReview: ${tag.taggedPizzaReviews}">
 					<a th:href="@{/singleReview(id=${pizzaReview.id})}" th:text="${pizzaReview.title}"></a>
 				</li>
 			</ul>

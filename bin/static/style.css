@@ -11,6 +11,11 @@
 	color: white;
 }
 
+#reviewsHeader h1:hover {
+	text-shadow: #222 rgba(0,0,0,0.3);
+}
+
+
 #reviewDetailHeader {
 	margin: 0;
 }
@@ -49,6 +54,11 @@ li a, h3 a {
 
 li a:visited {
 	color: rgb(112, 112, 112);
+}
+
+.pizzaTitle a:hover {
+	color: #211616;
+	font-size: 1.75rem;
 }
 
 img {
