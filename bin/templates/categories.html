@@ -27,7 +27,7 @@
  					<a th:href="@{/singleCategory(id=${category.id})}">
  						<img class="cat-img" th:src="${category.imageURL}" alt="category image"/>
  					</a>
-					<h3>
+					<h3 class="cat-name">
 						<a th:href="@{/singleCategory(id=${category.id})}"
 					   th:text="${category.name}">
 						</a>
@@ -48,7 +48,7 @@
 	
 		</main>
 		<footer>
-			<p>I like Pizza!</p>
+			<p id="pizza-like-stmt">I like Pizza!</p>
 			<p id="footer-copyright">WCCI Week 7 Project - copyright 2017</p>
 		</footer>
 	</div>

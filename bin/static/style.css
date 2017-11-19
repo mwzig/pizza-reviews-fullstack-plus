@@ -56,9 +56,10 @@ li a:visited {
 	color: rgb(112, 112, 112);
 }
 
+
 .pizzaTitle a:hover {
 	color: #211616;
-	font-size: 1.75rem;
+	font-size: 1.65rem;
 }
 
 img {

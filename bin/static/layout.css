@@ -37,6 +37,7 @@ main {
 .cat-list h3 {
 	display: flex;
 	justify-content: space-around;
+	padding-top: .6rem;
 }
 
 .tag-list {

@@ -39,8 +39,24 @@ addCommentButton.addEventListener('click', function() {
 	div.appendChild(para);
 
 });
+
+
+// Leaving this in as an example of looping through elements and 
+// setting up EventListeners on all of a set
+// Decided not to implement because it doesn't look good.
+// Implemented a mouseover on the footer line "I like Pizza" on
+// the main page because it looks better to do it there.
 /*
-element.addEventListener('mouseout', function() {
-	this.style[cssProp] = value2;
-});
- */
+var categoryName = document.querySelectorAll('.cat-name');
+
+for (var i=0; i < categoryName.length; i++) {
+	categoryName[i].addEventListener('mouseover', 
+		function() {
+			this.style.fontSize = '130%';
+		})
+	categoryName[i].addEventListener('mouseout', 
+		function() {
+			this.style.fontSize = '100%';
+		});
+}
+*/
