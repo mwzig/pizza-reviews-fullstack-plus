@@ -39,7 +39,6 @@ addCommentButton.addEventListener('click', function() {
 	div.appendChild(para);
 
 });
-
 /*
 element.addEventListener('mouseout', function() {
 	this.style[cssProp] = value2;
