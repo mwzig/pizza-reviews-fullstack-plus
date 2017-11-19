@@ -10,3 +10,7 @@
 	display: flex;
 	flex-wrap: wrap;
 }
+
+.aComment{
+	display: flex;
+}
